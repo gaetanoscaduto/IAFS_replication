@@ -652,10 +652,11 @@ full_interaction_effects_bycountry = function(data,
     )
   
   
-  ggsave(paste0(output_wd, subdir,"interacted_", type_of_interaction, ".png"), 
+  ggsave(paste0(output_wd, subdir,"interacted_", type_of_interaction, ".tif"), 
          p, 
          height = height_pic, 
          width = width_pic,
+         dpi = 600,
          create.dir = T)
   
   saveRDS(p, file = paste0(output_wd, subdir,"interacted_", type_of_interaction, ".rds"))
@@ -1066,7 +1067,8 @@ full_subgroup_analysis = function(data,
                 subdir, 
                 subgroup_name,
                 estimator,
-                "1.png"), 
+                dpi = 600,
+                "1.tif"), 
          p,
          height = 10,
          width = 8, create.dir = T)
@@ -1082,7 +1084,8 @@ full_subgroup_analysis = function(data,
                 subdir, 
                 subgroup_name,
                 estimator,
-                "2.png"), 
+                dpi = 600,
+                "2.tif"), 
          p,
          height = 10,
          width = 8, create.dir = T)
@@ -1101,11 +1104,11 @@ full_subgroup_analysis = function(data,
 outcome="ideology"
 #outcome="populism"
 
-anonymyzed_path1 = "C:/Users/100722gsc/OneDrive - Erasmus University Rotterdam/Postdoc/SUBMISSIONS/IAFS/IJPOR/data and scripts/"
+anonymyzed_path1 = "C:/Users/gscaduto/OneDrive - Tilburg University/Postdoc/SUBMISSIONS/IAFS/IJPOR/data and scripts/"
 
-anonymyzed_path2 = "C:/Users/100722gsc/OneDrive - Erasmus University Rotterdam/Postdoc/SUBMISSIONS/IAFS/IJPOR/new output/"
+anonymyzed_path2 = "C:/Users/gscaduto/OneDrive - Tilburg University/Postdoc/SUBMISSIONS/IAFS/IJPOR/new output/"
 gdrive_code = ""
-clean = F
+clean = T
 
 output_wd = paste0(gdrive_code, anonymyzed_path2,"Clean_", clean, "/bycountry/")
 
@@ -1209,10 +1212,17 @@ plot_pooled_sociodemo = (result$plot_pooled[["Gender"]]+scale_x_continuous(limit
            legend.key.size = unit(30, "pt")))
 
 
+ggsave(paste0(output_wd, subdir, "sociodemo_pooled.tif"),
+       plot_pooled_sociodemo,
+       height = 12,
+       width = 10,
+       dpi = 600,
+       create.dir = T)
 ggsave(paste0(output_wd, subdir, "sociodemo_pooled.png"),
        plot_pooled_sociodemo,
        height = 12,
        width = 10,
+       dpi = 600,
        create.dir = T)
 
 plot_pooled_psychocultu = result$plot_pooled[["Consc"]]/
@@ -1233,10 +1243,18 @@ plot_pooled_psychocultu = result$plot_pooled[["Consc"]]/
            legend.key.size = unit(30, "pt")))
 
 
+ggsave(paste0(output_wd, subdir, "psychocultu_pooled.tif"),
+       plot_pooled_psychocultu,
+       height = 15,
+       width = 10,
+       dpi = 600,
+       create.dir = T)
+
 ggsave(paste0(output_wd, subdir, "psychocultu_pooled.png"),
        plot_pooled_psychocultu,
        height = 15,
        width = 10,
+       dpi = 600,
        create.dir = T)
 
 
@@ -1300,10 +1318,18 @@ plot_comparative_sociodemo = (result$plot_comparative[["Gender"]]+scale_x_contin
            legend.key.size = unit(30, "pt")))
 
 
+ggsave(paste0(output_wd, subdir, "sociodemo_comparative.tif"),
+       plot_comparative_sociodemo,
+       height = 12,
+       width = 10,
+       dpi = 600,
+       create.dir = T)
+
 ggsave(paste0(output_wd, subdir, "sociodemo_comparative.png"),
        plot_comparative_sociodemo,
        height = 12,
        width = 10,
+       dpi = 600,
        create.dir = T)
 
 plot_comparative_psychocultu = result$plot_comparative[["Consc"]]/
@@ -1324,10 +1350,19 @@ plot_comparative_psychocultu = result$plot_comparative[["Consc"]]/
            legend.key.size = unit(30, "pt")))
 
 
+ggsave(paste0(output_wd, subdir, "psychocultu_comparative.tif"),
+       plot_comparative_psychocultu,
+       height = 12,
+       width = 10,
+       dpi = 600,
+       create.dir = T)
+
+
 ggsave(paste0(output_wd, subdir, "psychocultu_comparative.png"),
        plot_comparative_psychocultu,
        height = 12,
        width = 10,
+       dpi = 600,
        create.dir = T)
 
 ##### Comparative (AMCE, for appendix) ####
@@ -1389,10 +1424,18 @@ plot_comparative_sociodemo = (result$plot_comparative[["Gender"]]+scale_x_contin
            legend.key.size = unit(30, "pt")))
 
 
+ggsave(paste0(output_wd, subdir, "sociodemo_comparative.tif"),
+       plot_comparative_sociodemo,
+       height = 12,
+       width = 10,
+       dpi = 600,
+       create.dir = T)
+
 ggsave(paste0(output_wd, subdir, "sociodemo_comparative.png"),
        plot_comparative_sociodemo,
        height = 12,
        width = 10,
+       dpi = 600,
        create.dir = T)
 
 plot_comparative_psychocultu = result$plot_comparative[["Consc"]]/
@@ -1413,10 +1456,18 @@ plot_comparative_psychocultu = result$plot_comparative[["Consc"]]/
            legend.key.size = unit(30, "pt")))
 
 
+ggsave(paste0(output_wd, subdir, "psychocultu_comparative.tif"),
+       plot_comparative_psychocultu,
+       height = 12,
+       width = 10,
+       dpi = 600,
+       create.dir = T)
+
 ggsave(paste0(output_wd, subdir, "psychocultu_comparative.png"),
        plot_comparative_psychocultu,
        height = 12,
        width = 10,
+       dpi = 600,
        create.dir = T)
 
 
@@ -1468,10 +1519,18 @@ p = ggplot(importance_weights_pool, aes(x = Attribute, y = contribution_R2)) +
     panel.grid.major.x = element_blank()
   )
 
+ggsave(paste0(output_wd, subdir, "Pseudo_R2_pooled.tif"), 
+       p, 
+       height = 8, 
+       width = 8,
+       dpi = 600, 
+       create.dir = T)
+
 ggsave(paste0(output_wd, subdir, "Pseudo_R2_pooled.png"), 
        p, 
        height = 8, 
-       width = 8, 
+       width = 8,
+       dpi = 600, 
        create.dir = T)
 
 
@@ -1541,9 +1600,18 @@ p = ggplot(importance_weights_comp, aes(x = Attribute, y = contribution_R2, fill
     panel.grid.major.x = element_blank()
   )
 
+ggsave(paste0(output_wd, subdir, "Pseudo_R2_comp.tif"), 
+       p, 
+       height = 8, 
+       width = 8,
+       dpi = 600, 
+       create.dir = T)
+
 ggsave(paste0(output_wd, subdir, "Pseudo_R2_comp.png"), 
        p, 
        height = 8, 
-       width = 8, 
+       width = 8,
+       dpi = 600, 
        create.dir = T)
+
 
