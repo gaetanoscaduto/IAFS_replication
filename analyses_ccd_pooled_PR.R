@@ -27,13 +27,14 @@ library(tools)
 
 # Set output directory
 
-anonymyzed_path1 = "C:/Users/100722gsc/OneDrive - Erasmus University Rotterdam/Postdoc/SUBMISSIONS/IAFS/IJPOR/data and scripts/"
-anonymyzed_path2 = "C:/Users/100722gsc/OneDrive - Erasmus University Rotterdam/Postdoc/SUBMISSIONS/IAFS/IJPOR/new output/"
+anonymyzed_path1 = "your data path here"
+
+anonymyzed_path2 = "your output path here"
 
 dataset_rep = anonymyzed_path1
 gdrive_code = ""
 
-clean = F
+clean = T
 
 output_wd = paste0(anonymyzed_path2,
                    "Clean_", clean, "/POOLED_with_sd/")

@@ -656,7 +656,8 @@ full_interaction_effects_bycountry = function(data,
          p, 
          height = height_pic, 
          width = width_pic,
-         dpi = 600,
+         dpi = 300,
+         device = "tiff", compression = "lzw",
          create.dir = T)
   
   saveRDS(p, file = paste0(output_wd, subdir,"interacted_", type_of_interaction, ".rds"))
@@ -927,7 +928,7 @@ full_subgroup_analysis = function(data,
                         fatten = fatten_pool,
                         position = position_nudge(y = y_POOL1),
                         show.legend = T)+
-       geom_pointrange(data=data_POOL2,
+        geom_pointrange(data=data_POOL2,
                         aes(x=estimate, xmin=lower, xmax=upper,
                             y=level, col = "POOL"),
                         shape = 17,
@@ -1067,9 +1068,10 @@ full_subgroup_analysis = function(data,
                 subdir, 
                 subgroup_name,
                 estimator,
-                dpi = 600,
                 "1.tif"), 
          p,
+         dpi=300,
+         device = "tiff", compression = "lzw",
          height = 10,
          width = 8, create.dir = T)
   
@@ -1084,9 +1086,10 @@ full_subgroup_analysis = function(data,
                 subdir, 
                 subgroup_name,
                 estimator,
-                dpi = 600,
                 "2.tif"), 
          p,
+         dpi = 300,
+         device = "tiff", compression = "lzw",
          height = 10,
          width = 8, create.dir = T)
   
@@ -1104,9 +1107,9 @@ full_subgroup_analysis = function(data,
 outcome="ideology"
 #outcome="populism"
 
-anonymyzed_path1 = "C:/Users/gscaduto/OneDrive - Tilburg University/Postdoc/SUBMISSIONS/IAFS/IJPOR/data and scripts/"
+anonymyzed_path1 = "your data path here"
 
-anonymyzed_path2 = "C:/Users/gscaduto/OneDrive - Tilburg University/Postdoc/SUBMISSIONS/IAFS/IJPOR/new output/"
+anonymyzed_path2 = "your output path here"
 gdrive_code = ""
 clean = T
 
@@ -1216,8 +1219,10 @@ ggsave(paste0(output_wd, subdir, "sociodemo_pooled.tif"),
        plot_pooled_sociodemo,
        height = 12,
        width = 10,
-       dpi = 600,
+       dpi = 300,
+       device = "tiff", compression = "lzw",
        create.dir = T)
+
 ggsave(paste0(output_wd, subdir, "sociodemo_pooled.png"),
        plot_pooled_sociodemo,
        height = 12,
@@ -1247,7 +1252,8 @@ ggsave(paste0(output_wd, subdir, "psychocultu_pooled.tif"),
        plot_pooled_psychocultu,
        height = 15,
        width = 10,
-       dpi = 600,
+       dpi = 300,
+       device = "tiff", compression = "lzw",
        create.dir = T)
 
 ggsave(paste0(output_wd, subdir, "psychocultu_pooled.png"),
@@ -1322,7 +1328,8 @@ ggsave(paste0(output_wd, subdir, "sociodemo_comparative.tif"),
        plot_comparative_sociodemo,
        height = 12,
        width = 10,
-       dpi = 600,
+       dpi = 300,
+       device = "tiff", compression = "lzw",
        create.dir = T)
 
 ggsave(paste0(output_wd, subdir, "sociodemo_comparative.png"),
@@ -1354,7 +1361,8 @@ ggsave(paste0(output_wd, subdir, "psychocultu_comparative.tif"),
        plot_comparative_psychocultu,
        height = 12,
        width = 10,
-       dpi = 600,
+       dpi = 300,
+       device = "tiff", compression = "lzw",
        create.dir = T)
 
 
@@ -1428,7 +1436,8 @@ ggsave(paste0(output_wd, subdir, "sociodemo_comparative.tif"),
        plot_comparative_sociodemo,
        height = 12,
        width = 10,
-       dpi = 600,
+       dpi = 300,
+       device = "tiff", compression = "lzw",
        create.dir = T)
 
 ggsave(paste0(output_wd, subdir, "sociodemo_comparative.png"),
@@ -1460,7 +1469,8 @@ ggsave(paste0(output_wd, subdir, "psychocultu_comparative.tif"),
        plot_comparative_psychocultu,
        height = 12,
        width = 10,
-       dpi = 600,
+       dpi = 300,
+       device = "tiff", compression = "lzw",
        create.dir = T)
 
 ggsave(paste0(output_wd, subdir, "psychocultu_comparative.png"),
@@ -1523,7 +1533,8 @@ ggsave(paste0(output_wd, subdir, "Pseudo_R2_pooled.tif"),
        p, 
        height = 8, 
        width = 8,
-       dpi = 600, 
+       dpi = 300,
+       device = "tiff", compression = "lzw",
        create.dir = T)
 
 ggsave(paste0(output_wd, subdir, "Pseudo_R2_pooled.png"), 
@@ -1604,7 +1615,8 @@ ggsave(paste0(output_wd, subdir, "Pseudo_R2_comp.tif"),
        p, 
        height = 8, 
        width = 8,
-       dpi = 600, 
+       dpi = 300, 
+       device = "tiff", compression = "lzw",
        create.dir = T)
 
 ggsave(paste0(output_wd, subdir, "Pseudo_R2_comp.png"), 
@@ -1613,5 +1625,4 @@ ggsave(paste0(output_wd, subdir, "Pseudo_R2_comp.png"),
        width = 8,
        dpi = 600, 
        create.dir = T)
-
 
